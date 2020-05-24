@@ -1,0 +1,4 @@
+[submodule "lib"]
+	path = lib
+	url = git@gitlab.ethz.ch:tec/public/exot/app_lib.git
+	branch = master

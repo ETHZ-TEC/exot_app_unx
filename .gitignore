@@ -1,0 +1,50 @@
+# Compiled object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled headers
+*.qch
+*.pch
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.out
+build
+
+# CMake
+cmake-build*
+*/cmake-build*
+CMakeCache*
+*/CMakeCache*
+cmake_*
+*/cmake_*
+CMakeFiles
+*/CMakeFiles
+*.cbp
+*/*.cbp
+
+IDE
+compile_commands.json
+*.sublime-*
+
+# Makefiles
+Makefile
+*/Makefile
+
+# Hidden files and directories
+.*
+*/.*
+!.gitignore
+!.gitmodules
