@@ -252,7 +252,7 @@ struct Evaluator : public exot::framework::IProcess {
                      exot::utilities::thread_info());
 
 #if !defined(__x86_64__)
-    exot::utilities::default_timing_facility([] {});
+    exot::utilities::default_timing_facility([]{});
 #endif
 
     while (!global_state_->is_started() && !conf_.start_immediately) {

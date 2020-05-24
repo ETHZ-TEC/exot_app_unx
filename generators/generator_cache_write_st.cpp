@@ -26,6 +26,12 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file generators/generator_cache_write_st.cpp
+ * @author     Bruno Klopott
+ * @brief      A generator accessing 1-64 cache sets via write instructions.
+ */
+
 #include <chrono>
 
 #include <exot/components/generator_host.h>

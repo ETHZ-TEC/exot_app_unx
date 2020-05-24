@@ -28,7 +28,7 @@
 // 
 /**
  * @file generators/generator_utilisation_mt.cpp
- * @author     Bruno Klopott
+ * @author     Philipp Miedl, Bruno Klopott
  * @brief      Multi-threaded generator imposing a computation-driven load on
  *             the system.
  */
@@ -41,12 +41,12 @@
 
 #include <exot/components/generator_host.h>
 #include <exot/components/schedule_reader.h>
-#include <exot/generators/utilisation_mt.h>
+#include <exot/generators/utilisation_ut.h>
 #include <exot/utilities/main.h>
 
 using loadgen_t =
     exot::components::generator_host<std::chrono::nanoseconds,
-                                     exot::modules::generator_utilisation_mt>;
+                                     exot::modules::generator_utilisation_ut>;
 using reader_t =
     exot::components::schedule_reader<typename loadgen_t::token_type>;
 

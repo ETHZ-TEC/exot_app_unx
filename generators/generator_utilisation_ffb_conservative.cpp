@@ -26,17 +26,30 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file generators/generator_utilisation_ffb_conservative.cpp
+ * @author     Philipp Miedl, Bruno Klopott
+ * @brief      Single-threaded generator imposing a computation-driven load on
+ *             the system depending on the current operating frequency.
+ */
+
+#ifndef GENERATOR_HOST_PERFORM_VALIDATION
+#define GENERATOR_HOST_PERFORM_VALIDATION true
+#endif
+
 #include <chrono>
 
-#include <exot/components/meter_host_logger.h>
-#include <exot/meters/cache.h>
+#include <exot/components/generator_ffb.h>
+#include <exot/components/schedule_reader.h>
+#include <exot/generators/utilisation_ffb_conservative.h>
 #include <exot/utilities/main.h>
 
-using namespace exot;
-
-using meter_t = components::meter_host_logger<std::chrono::nanoseconds,
-                                              modules::cache_ristenpart>;
+using loadgen_t = exot::components::generator_ffb<
+    std::chrono::nanoseconds,
+    exot::modules::generator_utilisation_ffb_conservative>;
+using reader_t =
+    exot::components::schedule_reader<typename loadgen_t::token_type>;
 
 int main(int argc, char** argv) {
-  return utilities::cli_wrapper<meter_t>(argc, argv);
+  return exot::utilities::cli_wrapper<reader_t, loadgen_t>(argc, argv);
 }

@@ -26,6 +26,12 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file generators/generator_rdseed_mt.cpp
+ * @author     Bruno Klopott
+ * @brief      Multi-threaded generator imposing a load on the HW RNG.
+ */
+
 #if defined(__x86_64__)
 
 #include <chrono>

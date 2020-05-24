@@ -26,7 +26,17 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file meters/meter_cache_ff.cpp
+ * @author     Bruno Klopott
+ * @brief      Measures time required to flush 1-64 cache sets with Flush+Flush.
+ * @note       Requires explicit cache flush instructions, therefore limited to
+ *             The x86_64 and aarch64 architectures.
+ */
+
 #include <chrono>
+
+#if defined(__x86_64__) || defined(__aarch64__)
 
 #include <exot/components/meter_host_logger.h>
 #include <exot/meters/cache.h>
@@ -40,3 +50,16 @@ using meter_t =
 int main(int argc, char** argv) {
   return utilities::cli_wrapper<meter_t>(argc, argv);
 }
+
+#else
+
+#include <fmt/core.h>
+
+int main(int argc, char** argv) {
+  fmt::print(
+      "Cache-based modules that rely on an explicit flush instruction"
+      "are not available on this platform.\n");
+  return 1;
+}
+
+#endif

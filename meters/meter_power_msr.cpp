@@ -27,29 +27,34 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
 /**
- * @file generators/generator_utilisation_mt.cpp
+ * @file meters/meter_power_msr.cpp
  * @author     Bruno Klopott
- * @brief      Multi-threaded generator imposing a computation-driven load on
- *             the system.
+ * @brief      A meter application using power_msr.
  */
 
-#ifndef GENERATOR_HOST_PERFORM_VALIDATION
-#define GENERATOR_HOST_PERFORM_VALIDATION true
-#endif
+#if defined(__x86_64__)
 
 #include <chrono>
 
-#include <exot/components/generator_host.h>
-#include <exot/components/schedule_reader.h>
-#include <exot/generators/utilisation_mt.h>
+#include <exot/components/meter_host_logger.h>
+#include <exot/meters/power_msr.h>
 #include <exot/utilities/main.h>
 
-using loadgen_t =
-    exot::components::generator_host<std::chrono::nanoseconds,
-                                     exot::modules::generator_utilisation_mt>;
-using reader_t =
-    exot::components::schedule_reader<typename loadgen_t::token_type>;
+using namespace exot;
+
+using meter_t =
+    components::meter_host_logger<std::chrono::nanoseconds, modules::power_msr>;
 
 int main(int argc, char** argv) {
-  return exot::utilities::cli_wrapper<reader_t, loadgen_t>(argc, argv);
+  return utilities::cli_wrapper<meter_t>(argc, argv);
 }
+#else
+
+#include <fmt/core.h>
+
+int main(int argc, char** argv) {
+  fmt::print("Apps using the MSR module are not available on this platform.\n");
+  return 1;
+}
+
+#endif

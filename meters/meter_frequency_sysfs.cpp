@@ -29,6 +29,7 @@
 /**
  * @file meters/meter_frequency_sysfs.cpp
  * @author     Bruno Klopott
+ * @brief      Measures the scaling frequencies of CPU cores.
  */
 
 #include <chrono>

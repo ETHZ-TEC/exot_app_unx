@@ -26,6 +26,16 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file generators/generator_cache_maurice_mt.cpp
+ * @author     Bruno Klopott
+ * @brief      A multi-threaded generator causing LLC cache evictions.
+ * @note       Implements functionality described in:
+ *               C. Maurice, C. Neumann, O. Heen, and A. Francillon,
+ *               “C5: Cross-Cores Cache Exot Channel.,”
+ *               DIMVA, vol. 9148, no. 3, pp. 46–64, 2015.
+ */
+
 #include <chrono>
 
 #include <exot/components/generator_host.h>

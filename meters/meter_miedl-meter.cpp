@@ -29,6 +29,7 @@
 /**
  * @file meters/meter_miedl-meter.cpp
  * @author     Bruno Klopott
+ * @brief      Measures utilisation, absolute and relative scaling frequencies.
  */
 
 #include <exot/components/meter_host_logger.h>

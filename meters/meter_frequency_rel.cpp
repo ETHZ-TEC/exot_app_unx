@@ -29,6 +29,7 @@
 /**
  * @file meters/meter_frequency_rel.cpp
  * @author     Bruno Klopott
+ * @brief      Measures the relative scaling frequencies of CPU cores.
  */
 
 #include <chrono>

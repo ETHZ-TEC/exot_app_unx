@@ -26,10 +26,16 @@
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
+/**
+ * @file meters/meter_cache_l1.cpp
+ * @author     Bruno Klopott
+ * @brief      Measures access time to a buffer filling the L1 cache.
+ */
+
 #include <chrono>
 
 #include <exot/components/meter_host_logger.h>
-#include <exot/meters/cache.h>
+#include <exot/meters/cache_l1.h>
 #include <exot/utilities/main.h>
 
 using namespace exot;
